@@ -26,14 +26,16 @@ io.on('connection',(socket)=>{
 
     socket.on('send-location',(data)=>{
 
+        console.log(socket.id);
        
-
-        io.emit('current-location',{id:socket.id, ...data})
+    io.emit('current-location',{ id:socket.id , ...data})
     })
 
-    socket.on('disconnect',()=>{
-        io.emit('user-disconnect',socket.id)
-    })
+    // socket.on('disconnect',()=>{
+    //     console.log('disconnceted');
+
+    //     io.emit('user-disconnect',socket.id)
+    // })
 })
 
 // 
